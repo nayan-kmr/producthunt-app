@@ -1,0 +1,15 @@
+<h4>Product Hunt</h4>
+{% if user.is_authenticated %}
+<br><br>
+<a href="javascript:{document.getElementById('logout').submit()}" onclick="">Logout</a>
+<form id="logout" action="{% url 'logout' %}" method="POST">
+  {% csrf_token %}
+  <input type="hidden" />
+</form>
+{% else %}
+<a href="{% url 'signup' %}">Signup</a>
+<a href="{% url 'login' %}">Login</a>
+{% endif %}
+
+{% block content %}
+{% endblock %}
